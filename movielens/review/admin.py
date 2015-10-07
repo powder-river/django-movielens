@@ -2,13 +2,17 @@ from django.contrib import admin
 from .models import Movie, Rater, Rating
 
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ['title']
+    list_display = ['id','title']
+
 
 class RaterAdmin(admin.ModelAdmin):
-    list_dispay = ['age']
+    list_dispay = ['id','age']
+
+
 
 class RatingAdmin(admin.ModelAdmin):
     list_display =['movie','rating','rater']
+
 # Register your models here.
 
 

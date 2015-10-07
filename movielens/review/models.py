@@ -5,11 +5,14 @@ from django.contrib.auth.models import User
 class Movie(models.Model):
     title = models.CharField(max_length=300)
 
-
+    def __str__(self):
+        return self.title
 class Rater(models.Model):
     age = models.IntegerField()
-    # rating = models.DecimalField()
-    # movie = models.ForeignKey(Movie)
+
+    def __str__(self):
+        return str(self.id)
+
 
 
 class Rating(models.Model):
