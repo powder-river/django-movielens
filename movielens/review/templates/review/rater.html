@@ -6,6 +6,16 @@
 </head>
 
 
+
+{% if user.is_authenticated %}
+logged in as {{ user }}
+(<a href="{% url 'logout' %}">logout</a>)
+{% else %}
+
+{% endif %}
+
+
+
 <body>
   <h1>Raters</h1>
   <h3>Raters gonna rate rate rate rate rate</h3>
