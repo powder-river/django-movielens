@@ -9,6 +9,16 @@
 <body>
   <h1>Raters</h1>
   <h3>Raters gonna Rate</h3>
+  <ul>
+    {% for movie in movies %}
+    <li>
+      {{ movie.title }}
+    </li>
+    {% endfor %}
+  </ul>
+  <p>
+    hello
+  </p>
 </body>
 
 
