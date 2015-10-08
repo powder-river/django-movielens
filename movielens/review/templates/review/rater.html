@@ -8,11 +8,11 @@
 
 <body>
   <h1>Raters</h1>
-  <h3>Raters gonna Rate</h3>
+  <h3>Raters gonna rate rate rate rate rate</h3>
   <ul>
     {% for movie in movies %}
     <li>
-      {{ movie.title }}
+      {{ movie.title }}, {{ movie.average_rating|floatformat }}
     </li>
     {% endfor %}
   </ul>

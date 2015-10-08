@@ -6,6 +6,9 @@ class Movie(models.Model):
     title = models.CharField(max_length=300)
     genre = models.CharField(max_length=300)
 
+    def average_rating(self):
+        return self.rating_set.aggregate(models.Avg('rating'))['rating__avg']
+
     def __str__(self):
         return "{} {}".format(self.title, self.genre)
 class Rater(models.Model):
