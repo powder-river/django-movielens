@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles%}
+{% block content %}
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+    <table class='table'>
+      <tr>
+        <th>Movie Title</th>
+        <th>Average Rating</th>
+      </tr>
+
+      <tr>
+      {% for movie in movies %}
+      <td>{{ movie.title }} </td>
+      <td>{{ movie.average_rating|floatformat }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+{% endblock %}

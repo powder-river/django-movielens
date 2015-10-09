@@ -1,21 +1,9 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
 {% load staticfiles%}
-<html>
-  <head>
-    <title>MovieLensData</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
-  </head>
-
-  <body>
 
 
-  {% if user.is_authenticated %}
-  logged in as {{ user }} | <a href="{% url 'logout' %}">logout</a>
-
-  {% endif %}
-
-
+{% block content %}
     <div class="container">
       <div class='row'>
         {% for rater in raters %}
@@ -25,7 +13,4 @@
         {% endfor %}
       </div>
     </div>
-
-
-  </body>
-</html>
+{% endblock %}

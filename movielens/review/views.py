@@ -6,7 +6,7 @@ from .models import Rater, Rating, Movie
 def all_movies(request):
     movies = Movie.objects.all()
     return render(request,
-            'review/rater.html',
+            'review/movies.html',
             {'movies': movies})
 
 
