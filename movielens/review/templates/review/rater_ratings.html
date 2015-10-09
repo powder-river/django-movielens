@@ -1,33 +1,25 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
 {% load staticfiles%}
-<html>
-  <head>
-    <title>MovieLensData</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
-  </head>
 
-  <body>
 
-  
-    <div class='container'>
-      <h1> Rater ID: {{ rater.id }}</h1>
-      <h4>{{ rater }}</h4>
-      <a href="{% url 'rater_list' %}"><button>Rater List</button></a>
+{% block content %}
+
+  <div class='container'>
+    <h2> Rater ID: {{ rater.id }}</h2>
+    <h5>{{ rater }}</h5>
+
+  </div>
+
+  <div class="container">
+    <div class='row'>
+      {% for r in ratings %}
+        <div class="col-md-6">
+          <p class="list-group-item"> {{ r.movie_id }} </p>
+        </div>
+      {% endfor %}
     </div>
-
-    <div class="container">
-      <div class='row'>
-        {% for r in ratings %}
-          <div class="col-md-6">
-            <p class="list-group-item">
-
-            {{ r.movie_id }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
+  </div>
 
 
-  </body>
-</html>
+{% endblock %}
