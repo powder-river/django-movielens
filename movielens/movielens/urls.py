@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$',user_views.user_login, name='user_login'),
-
     url(r'^logout/$', user_views.user_login, name='logout'),
 
     url(r'^reviews/',include('review.urls'))

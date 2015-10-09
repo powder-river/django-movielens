@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
   </head>
-  
+
   <body>
 
 
@@ -20,7 +20,7 @@
       <div class='row'>
         {% for rater in raters %}
           <div class="col-md-4">
-            <a href="#" class="list-group-item">{{ rater }}</a>
+            <a href="{% url 'rater_detail' rater.pk %}" class="list-group-item">{{ rater }}</a>
           </div>
         {% endfor %}
       </div>

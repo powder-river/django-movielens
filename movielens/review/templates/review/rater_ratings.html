@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html>
+  <head>
+    <title>MovieLensData</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
+  </head>
+
+  <body>
+    <h1> Rater ID: {{ rater.id }}</h1>
+    <h4>{{ rater }}</h4>
+<!-- {% block content %} -->
+  {% for r in ratings %}
+    <p>
+
+  {{ r.movie_id }}
+    </p>
+
+  {% endfor %}
+<!-- {% endblock %} -->
+
+  </body>
+</html>

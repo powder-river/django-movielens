@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     url(r'^movies/all', views.all_movies, name='movie_list'),
-    url(r'^raters/all', views.rater_detail, name='potato_list')
-
+    url(r'^raters/all', views.rater_detail, name='rater_list'),
+    url(r'^raters/(?P<rater_id>\d+)$', views.show_rater, name='rater_detail')
     # url(r'movie/(?P<movie_id>\d+)$', views.movie_detail)
     # url(r'^statuses/', views.recent_statuses),
     # url(r'^user/(?P<user_id>\d+)$', views.show_user),
