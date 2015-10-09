@@ -18,7 +18,7 @@ class Rater(models.Model):
     occupation = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{} {} {} {}".format(self.age,self.gender,self.zipcode,self.occupation)
+        return "ID: {}, Age: {}, Gender: {}, Zipcode: {}, Occupation #:{}".format(str(self.id),self.age,self.gender,self.zipcode,self.occupation)
 
 
 

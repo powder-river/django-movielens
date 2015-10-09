@@ -9,9 +9,13 @@ def all_movies(request):
             'review/rater.html',
             {'movies': movies})
 
-def movie_detail(request,movie_id):
-    movies = Movie.objects.all()
+def rater_detail(request):
+    raters = Rater.objects.all()
     return render(request,
-                    'review/movie_detail.html',
-                    {'movies':movies}
-    )
+                    'review/rater_detail.html',
+                    {'raters':raters})
+
+
+def all_raters(request):
+    raters = Rater.objects.all()
+    return render(request)

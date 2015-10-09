@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html>
+  <head>
+    <title>MovieLensData</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
+  </head>
+  
+  <body>
+
+
+  {% if user.is_authenticated %}
+  logged in as {{ user }} | <a href="{% url 'logout' %}">logout</a>
+
+  {% endif %}
+
+
+    <div class="container">
+      <div class='row'>
+        {% for rater in raters %}
+          <div class="col-md-4">
+            <a href="#" class="list-group-item">{{ rater }}</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  </body>
+</html>
