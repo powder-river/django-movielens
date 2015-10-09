@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from users import views as user_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -24,4 +26,4 @@ urlpatterns = [
     url(r'^logout/$', user_views.user_login, name='logout'),
 
     url(r'^reviews/',include('review.urls'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

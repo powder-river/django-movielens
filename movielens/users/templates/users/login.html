@@ -2,19 +2,37 @@
 
 {% block content %}
 
-  <h2> Login </h2>
+  
 
   {% if failed %}
-    <h3>Invalid User Name/Pass or the Developer REALLY messed something UP</h3>
+    <div class="alert alert-danger" role="alert">
+      <h3>Invalid User Name/Pass or the Developer REALLY messed something UP</h3>
+    </div>
   {% endif %}
+  <div class="row">
+    <!-- <div class="col-md-4">] -->
+    <div class="col-md-4 col-md-offset-4">
+      <form method="POST" action="{% url 'user_login' %}">
+        {% csrf_token %}
 
-  <form method="POST" action="{% url 'user_login' %}">
-    {% csrf_token %}
-    Username: <input type="text" name = "username" value="{{ username }}">
-    <br>
-    Password: <input type="password" name="password">
-    <br>
-    <input type="submit" value="login">
-  </form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" name="username" class="form-control" id="exampleInputEmail1" value="{{ username }}" placeholder="Username">
+        </div>
 
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-default" value="login">Login</button>
+      </form>
+    </div>
+  </div>
 {% endblock %}
+
+
+<!-- <div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+</div> -->

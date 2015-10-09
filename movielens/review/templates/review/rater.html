@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-
+{% load staticfiles%}
 <html>
 <head>
   <title>MovieLensData</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'review/rater.css' %}" />
 </head>
 
 
 
 {% if user.is_authenticated %}
-logged in as {{ user }}
-(<a href="{% url 'logout' %}">logout</a>)
+logged in as {{ user }} | <a href="{% url 'logout' %}">logout</a>
+
+
 {% else %}
 
 {% endif %}
@@ -17,19 +20,30 @@ logged in as {{ user }}
 
 
 <body>
-  <h1>Raters</h1>
-  <h3>Raters gonna rate rate rate rate rate</h3>
-  <ul>
-    {% for movie in movies %}
-    <li>
-      {{ movie.title }}, {{ movie.average_rating|floatformat }}
-    </li>
-    {% endfor %}
-  </ul>
-  <p>
-    hello
-  </p>
-</body>
+  <div class="page-header">
+    <h1>Raters <small> Cuz Raters gonna rate rate rate rate rate</small></h1>
+  </div>
+
+
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+    <table class='table'>
+      <tr>
+        <th>Movie Title</th>
+        <th>Average Rating</th>
+      </tr>
+
+      <tr>
+      {% for movie in movies %}
+      <td>{{ movie.title }} </td>
+      <td>{{ movie.average_rating|floatformat }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
 
 
 </html>
