@@ -12,12 +12,13 @@
       <h1>Movie Reviews<small> Cuz Raters gonna rate rate rate rate rate</small></h1>
 
       {% if user.is_authenticated %}
-      logged in as {{ user }} | <a href="{% url 'logout' %}"><button>Logout</button></a>
+        logged in as {{ user }} | <a href="{% url 'logout' %}"><button>Logout</button></a>
+
+        <a href="{% url 'rater_list' %}"><button>Rater List</button></a>
+        <a href="{% url 'movie_list' %}"><button>Movie List</button></a>
+        <a href="{% url 'best_movie' %}"><button>Top Rated Movies</button></a>
+        <a href="{% url 'user_profile' user.id %}"><button>User Profile</button></a>
       {% endif %}
-      <a href="{% url 'rater_list' %}"><button>Rater List</button></a>
-      <a href="{% url 'movie_list' %}"><button>Movie List</button></a>
-      <a href="{% url 'best_movie' %}"><button>Top Rated Movies</button></a>
-      <a href="{% url 'user_profile' user.id %}"><button>Top Rated Movies</button></a>
     </div>
   </div>
 

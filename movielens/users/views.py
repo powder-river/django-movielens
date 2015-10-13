@@ -19,13 +19,11 @@ def user_login(request):
                         {'failed': True,
                         'username': username})
 
-
     return render(request,
-          'users/login.html')
+        'users/login.html')
 
 
 def logout_view(request):
-    logout(request,
-           'users/login.html'
-    )
-    # Redirect to a success page.
+    logout(request)
+
+    return redirect('user_login')
