@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.db.models import Avg, Count
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from .models import Rater, Rating, Movie
 
@@ -26,11 +28,18 @@ def show_rater(request, rater_id):
                   })
 
 
-# def show_user(request, user_id):
-#     user = User.objects.get(pk=user_id)
-#     statuses = user.status_set.all().order_by('-posted_at')
-#
-#     return render(request,
-#                   'updates/user.html',
-#                   {'user': user,
-#                    'statuses': statuses})
+def top_movies(request):
+    popular_movies = Movie.objects.annotate(num_ratings=Count('rating')) \
+                                  .filter(num_ratings__gte=50)
+
+    movies = popular_movies.annotate(Avg('rating__rating')) \
+                           .order_by('-rating__rating__avg')[:20]
+
+    return render(request,
+                  'review/top_movies.html',
+                  {'movies': movies})
+
+def profile_info(request, user_id):
+    movie_user = User.objects.get(pk=user_id)
+    return render(request, 'review/profile.html',
+                            {'movie_user': movie_user})

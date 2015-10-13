@@ -16,6 +16,8 @@
       {% endif %}
       <a href="{% url 'rater_list' %}"><button>Rater List</button></a>
       <a href="{% url 'movie_list' %}"><button>Movie List</button></a>
+      <a href="{% url 'best_movie' %}"><button>Top Rated Movies</button></a>
+      <a href="{% url 'user_profile' user.id %}"><button>Top Rated Movies</button></a>
     </div>
   </div>
 
